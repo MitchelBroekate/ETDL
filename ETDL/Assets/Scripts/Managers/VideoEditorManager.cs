@@ -21,8 +21,8 @@ public class VideoEditorManager : MonoBehaviour
     public GameObject selectedClip;
     public int clipsPlaced = 0;
 
-    GameObject clip1;
-    GameObject clip2;
+    public GameObject clip1;
+    public GameObject clip2;
 
     //Clips get put in a random order.
     void Start()
@@ -60,9 +60,7 @@ public class VideoEditorManager : MonoBehaviour
     #region Hard Code Fix
     void PlayClipsInOrder()
     {
-
-            clip1 = clipSpawnPos[0].GetChild(0).gameObject;
-            clip2 = clipSpawnPos[1].GetChild(0).gameObject;
+        StopAllCoroutines();
 
         StartCoroutine(clipFinishedPlay());
     }
@@ -74,31 +72,37 @@ public class VideoEditorManager : MonoBehaviour
 
         clip1.transform.position = clipFinishedPosition.position;
 
+        yield return new WaitForSeconds(0.5f);
+
+        clip1.transform.GetChild(0).gameObject.SetActive(false);
+        clip1.GetComponent<VideoPlayer>().Stop();
         clip1.GetComponent<VideoPlayer>().Play();
 
-        yield return new WaitForSeconds(2);//Clip time
+        yield return new WaitForSeconds(6);//Clip time
 
+        clip1.transform.GetChild(0).gameObject.SetActive(true);
         clip1.SetActive(false);
 
         clip2.transform.position = clipFinishedPosition.position;
 
+        yield return new WaitForSeconds(0.5f);
+
+        clip2.transform.GetChild(0).gameObject.SetActive(false);
+        clip2.GetComponent<VideoPlayer>().Stop();
         clip2.GetComponent<VideoPlayer>().Play();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
+
+        clip2.transform.GetChild(0).gameObject.SetActive(true);
         clip2.SetActive(false);
 
 
         ClipSelection currentClipValues = clip1.GetComponent<ClipSelection>();
 
         //if wrong reset vars
-        if (currentClipValues.ClipPos != 1)
+        if (currentClipValues.ClipPos != currentClipValues.ClipValue)
         {
             clipsPlaced = 0;
-
-            foreach (Transform parentObject in clipSpawnPos)
-            {
-                Destroy(parentObject.GetChild(0).gameObject);
-            }
 
             foreach (GameObject placementButton in placementList)
             {
@@ -111,6 +115,11 @@ public class VideoEditorManager : MonoBehaviour
         }
         else
         {
+            foreach (Transform parentObject in clipSpawnPos)
+            {
+                Destroy(parentObject.GetChild(0).gameObject);
+            }
+
             //Spawn code piece
             Instantiate(codePiece, codeSpawn.position, codeSpawn.rotation);
             //win fx
