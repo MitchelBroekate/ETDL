@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float timerDuration = 60.0f; // Duration in seconds, adjustable in Inspector
-    [SerializeField] TMP_Text timerText; // Reference to the TMP text object, assign in Inspector
+    [SerializeField] float timerDuration = 60.0f;
+    [SerializeField] List<TMP_Text> timerTexts = new();
 
     public bool gameWon;
     public bool startTimer = false;
@@ -40,17 +41,22 @@ public class Timer : MonoBehaviour
 
     void UpdateTimerDisplay(float time)
     {
-        if (timerText != null)
+        if (time > 0)
         {
-            if (time > 0)
+            int minutes = Mathf.FloorToInt(time / 60);
+            int seconds = Mathf.FloorToInt(time % 60);
+
+            foreach (TMP_Text text in timerTexts)
             {
-                int minutes = Mathf.FloorToInt(time / 60);
-                int seconds = Mathf.FloorToInt(time % 60);
-                timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             }
-            else
+            
+        }
+        else
+        {
+            foreach (TMP_Text text in timerTexts)
             {
-                timerText.text = "Time's Up!";
+                text.text = "Time's Up!";
             }
         }
     }
