@@ -48,7 +48,6 @@ MonoBehaviour:
   usbSpawnpoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   usbObject: {fileID: 6738969376170424153, guid: bebb6a299c3ae8b4c9dbe88fcba58e0d,
     type: 3}
 --- !u!114 &1202128382922712698
@@ -66,13 +65,10 @@ MonoBehaviour:
   clipList:
   - {fileID: 6554779042509875372, guid: d6b2dfeaf9425364989db07ec9cb72a9, type: 3}
   - {fileID: 3279515428394511857, guid: faaa3886acfccb3449f0967b0453d9ec, type: 3}
-  - {fileID: 5513416415520687444, guid: 11f1406e9740c454085214b1f71f3d2b, type: 3}
   placementList:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   clipSpawnPos:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   clipFinishedPosition: {fileID: 0}
@@ -81,6 +77,8 @@ MonoBehaviour:
   codeSpawn: {fileID: 0}
   selectedClip: {fileID: 0}
   clipsPlaced: 0
+  clip1: {fileID: 0}
+  clip2: {fileID: 0}
 --- !u!1 &4246250312765325556
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerDuration: 360
   timerText: {fileID: 0}
+  gameWon: 0
+  startTimer: 0
 --- !u!1 &7469005247288808403
 GameObject:
   m_ObjectHideFlags: 0
