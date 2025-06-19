@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class AnimationHandController : MonoBehaviour
 {
+    
     public InputActionReference gripInputActionReference;
     public InputActionReference triggerInputActionReference;
 

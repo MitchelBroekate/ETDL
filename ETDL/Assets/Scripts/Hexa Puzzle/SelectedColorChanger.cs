@@ -22,6 +22,8 @@ public class SelectedColorChanger : MonoBehaviour
     [SerializeField]
     Transform codeSpawn;
 
+    bool _winOnce = false;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "CodePiece")
@@ -42,7 +44,7 @@ public class SelectedColorChanger : MonoBehaviour
 
     public void ConfirmColor()
     {
-        if (currentCode == null) return;
+        if (currentCode == null || _winOnce) return;
 
         //change wrong color
         ColorUtility.TryParseHtmlString("#" + currentCode, out Color correctColorHex);
@@ -53,6 +55,8 @@ public class SelectedColorChanger : MonoBehaviour
             //feedback right code
 
             StartCoroutine(CorrectColorWin());
+
+            _winOnce = true;
         }
         else
         {
@@ -67,6 +71,7 @@ public class SelectedColorChanger : MonoBehaviour
         yield return new WaitForSeconds(3);
         ParentLogo.SetActive(false);
 
-        Instantiate(codePiece, codeSpawn);
+        GameObject currentCodePiece = Instantiate(codePiece, codeSpawn.position, codeSpawn.rotation);
+        currentCodePiece.GetComponent<AiCodePiece>().respawnPoint = codeSpawn;
     }
 }

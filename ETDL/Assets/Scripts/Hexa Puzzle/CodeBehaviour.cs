@@ -9,7 +9,6 @@ public class CodeBehaviour : MonoBehaviour
 {
     XRGrabInteractable xRGrabInteractable;
     BoxCollider objectCollider;
-    int layerToRemove;
 
     [SerializeField]
     TMP_Text hexacodeText;
@@ -19,8 +18,6 @@ public class CodeBehaviour : MonoBehaviour
     {
         xRGrabInteractable = GetComponent<XRGrabInteractable>();
         objectCollider = GetComponent<BoxCollider>();
-
-        layerToRemove = LayerMask.NameToLayer("Walls");
     }
 
     void OnCollisionEnter(Collision collision)
@@ -30,7 +27,7 @@ public class CodeBehaviour : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                Destroy(gameObject);
+                Destroy(gameObject,1);
             }
         }
     }
