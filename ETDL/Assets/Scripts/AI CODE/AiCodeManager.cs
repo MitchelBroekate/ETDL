@@ -51,6 +51,6 @@ public class AiCodeManager : MonoBehaviour
 
         //AI shutdown/Open doors
 
-        
+        Debug.Log("Jope wined");
     }
 }

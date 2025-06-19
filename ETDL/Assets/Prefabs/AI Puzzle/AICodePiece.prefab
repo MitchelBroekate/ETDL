@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7455880356975449454}
   m_Layer: 0
   m_Name: AICodePiece
-  m_TagString: CodePiece
+  m_TagString: AiPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   codeText: {fileID: 783027904151251334}
+  respawnPoint: {fileID: 0}
 --- !u!1 &3130950203102831737
 GameObject:
   m_ObjectHideFlags: 0
