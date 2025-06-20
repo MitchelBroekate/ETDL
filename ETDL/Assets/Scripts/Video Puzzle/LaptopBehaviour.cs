@@ -7,7 +7,7 @@ public class LaptopBehaviour : MonoBehaviour
 {
     //Laptop screen tells the player to find USB
     [SerializeField]
-    TMP_Text laptopHintText;
+    TMP_Text laptopHintText, laptopHintText2;
 
     [SerializeField]
     List<GameObject> usbInLaptop = new();
@@ -19,7 +19,7 @@ public class LaptopBehaviour : MonoBehaviour
 
     void Start()
     {
-        laptopHintText.text = "Vind " + usbToCollect + " USB Sticks";
+        laptopHintText.text = usbToCollect.ToString();
 
         screenClips.SetActive(false);
         screenText.SetActive(false);
@@ -45,7 +45,7 @@ public class LaptopBehaviour : MonoBehaviour
         {
             usbInLaptop[usbToCollect].SetActive(true);
 
-            laptopHintText.text = "Edit de video clips";
+            laptopHintText2.text = "Edit de video clips";
 
             //set clips true
 
@@ -54,7 +54,7 @@ public class LaptopBehaviour : MonoBehaviour
         }
         else
         {
-            laptopHintText.text = "Vind " + usbToCollect + " USB Sticks";
+            laptopHintText.text = usbToCollect.ToString();
 
             usbInLaptop[usbToCollect].SetActive(true);
         }
