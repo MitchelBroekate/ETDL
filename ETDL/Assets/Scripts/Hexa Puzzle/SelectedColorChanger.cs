@@ -82,7 +82,6 @@ public class SelectedColorChanger : MonoBehaviour
         yield return new WaitForSeconds(3);
         ParentLogo.SetActive(false);
 
-        GameObject currentCodePiece = Instantiate(codePiece, codeSpawn.position, codeSpawn.rotation);
-        currentCodePiece.GetComponent<AiCodePiece>().respawnPoint = codeSpawn;
+        Instantiate(codePiece, codeSpawn.position, codeSpawn.rotation);
     }
 }

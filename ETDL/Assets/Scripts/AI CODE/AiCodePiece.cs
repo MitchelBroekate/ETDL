@@ -26,13 +26,6 @@ public class AiCodePiece : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Ground collsision check to despawn code piece
-        if (!xRGrabInteractable.isSelected)
-        {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                RespawnObject();
-            }
-        }
     }
 
     void FixedUpdate()
@@ -46,14 +39,6 @@ public class AiCodePiece : MonoBehaviour
         {
             objectCollider.excludeLayers = 0;
         }
-    }
-
-    void RespawnObject()
-    {
-        if (respawnPoint == null) return;
-
-        transform.position = respawnPoint.position;
-        transform.rotation = Quaternion.Euler(0,-90,0);
     }
     
     Char GetRandomLetter()
