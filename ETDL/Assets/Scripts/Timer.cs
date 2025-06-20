@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Timer : MonoBehaviour
 
     float timeRemaining;
     bool hasTriggered = false;
+
+    [Header("Audio")]
+    public AudioSource loseSource;
+    public AudioClip loseSound;
 
     void Start()
     {
@@ -63,8 +68,11 @@ public class Timer : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        //game lost stuff
-        yield return new WaitForSeconds(9);
-        
+        loseSource.clip = loseSound;
+        loseSource.Play();
+
+        yield return new WaitForSeconds(8);
+
+        SceneManager.LoadScene(0);
     }
 }

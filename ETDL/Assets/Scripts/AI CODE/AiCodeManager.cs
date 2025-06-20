@@ -17,6 +17,11 @@ public class AiCodeManager : MonoBehaviour
     [SerializeField] GameObject deur2;
 
     int completedCodePiece;
+
+    [Header("Audio")]
+    public AudioSource winSource;
+    public AudioClip winSound;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "AiPiece")
@@ -50,8 +55,8 @@ public class AiCodeManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        //AI shutdown/Open doors
-        //voicelines
+        winSource.clip = winSound;
+        winSource.Play();
 
         Destroy(deur1);
         Destroy(deur2);
