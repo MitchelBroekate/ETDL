@@ -24,6 +24,15 @@ public class SelectedColorChanger : MonoBehaviour
 
     bool _winOnce = false;
 
+    [Header("Audio")]
+    AudioSource correctSource;
+    public AudioClip[] correctSounds;
+
+    private void Start()
+    {
+        correctSource = GetComponent<AudioSource>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "CodePiece")
@@ -52,7 +61,8 @@ public class SelectedColorChanger : MonoBehaviour
 
         if (currentCode == "FA6805")
         {
-            //feedback right code
+            correctSource.clip = correctSounds[0];
+            correctSource.Play();
 
             StartCoroutine(CorrectColorWin());
 
@@ -60,7 +70,8 @@ public class SelectedColorChanger : MonoBehaviour
         }
         else
         {
-            //feedback wrong code
+            correctSource.clip = correctSounds[1];
+            correctSource.Play();
 
             Debug.Log("Wrong Code");
         }
