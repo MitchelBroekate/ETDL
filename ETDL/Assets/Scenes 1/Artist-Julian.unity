@@ -571,6 +571,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2708946326277848704, guid: a3794cbf265dea54b97e7b8493d5ae9c,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267475643415624113, guid: a3794cbf265dea54b97e7b8493d5ae9c,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6951449815272239148, guid: a3794cbf265dea54b97e7b8493d5ae9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,6 +630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237922313318558106, guid: a3794cbf265dea54b97e7b8493d5ae9c,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724608402364689046, guid: a3794cbf265dea54b97e7b8493d5ae9c,
         type: 3}
