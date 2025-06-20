@@ -13,7 +13,8 @@ public class AiCodeManager : MonoBehaviour
 
     AiCodePiece currentAICode;
 
-
+    [SerializeField] GameObject deur1;
+    [SerializeField] GameObject deur2;
 
     int completedCodePiece;
     void OnTriggerEnter(Collider other)
@@ -50,7 +51,11 @@ public class AiCodeManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         //AI shutdown/Open doors
+        //voicelines
 
-        Debug.Log("Jope wined");
+        Destroy(deur1);
+        Destroy(deur2);
+
+        Debug.Log("You Won!!!");
     }
 }

@@ -18,10 +18,13 @@ public class ButtonFunctions : MonoBehaviour
 
     [Header("Animation")]
     public PlayableDirector nexusAnim;
-    public Animator doorAnim;
 
     [Header("Timer")]
     public Timer timer;
+
+    [Header("Doors")]
+    [SerializeField] GameObject door1;
+    [SerializeField] GameObject door2;
 
     public void SettingsScreenActive()
     {
@@ -66,10 +69,8 @@ public class ButtonFunctions : MonoBehaviour
         }
         buttons[0].interactable = false;
 
-        doorAnim.SetInteger("door", 1);
-
         timer.startTimer = true;
-
-        //play door animation
+        Destroy(door1);
+        Destroy(door2);
     }
 }
